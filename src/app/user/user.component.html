@@ -1,0 +1,22 @@
+<div class="search-bar-container">
+    <label class="heading" for="search-box">GitHub Users Search</label>
+    <input class="search-bar" #searchBox placeholder="Search Github Users" (input)="search(searchBox.value)" />
+</div>
+<div *ngIf="user ; else noUser">
+    <div class="card-container">
+        <div class="card-content">
+            <div class="image-container">
+                <img class="avatar" src={{user.avatar_url}}>
+            </div>
+            <p class="content-sub-heading">Name:</p>
+            <p class="name">{{user.login}}</p>
+            <p class="content-sub-heading">Descrpition:</p>
+            <p class="bio">{{user.bio}}</p>
+            <p class="content-sub-heading">Number Of Repositories:</p>
+            <p class="repos">{{numberOfRepos}}</p>
+        </div>
+    </div>
+</div>
+<ng-template #noUser >
+<h1>No user Found!</h1>
+</ng-template>
